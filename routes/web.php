@@ -2,11 +2,13 @@
 require_once __DIR__ . "/../app/controllers/pelangganController.php";
 require_once __DIR__ . "/../app/controllers/homeController.php";
 
-if ($_GET['page'] == "home") {
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
+if ($page == "home") {
     home();
-} else if ($_GET['page'] == "pelanggan") {
+} else if ($page == "pelanggan") {
     listPelanggan();
 } else {
-    echo "404 Not Found";
+    require_once __DIR__ . "/../app/views/404.php";
 }
 ?>
